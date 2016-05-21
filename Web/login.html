@@ -29,11 +29,11 @@
         // Config Param
         /////////////////////////
         
-        var UserPoolId = 'us-east-1_Fidg1SRpL'; // Cognito User Pool Id
-        var ClientId = '36d3h4nk8pmp8n8j1bocegs1pb'; // Client Id(Cognito User Pool App Client Id)
-        var IdentityPoolId = 'us-east-1:41bbf911-3f5e-4ba0-acfe-bd71eaa7f8b3'; // Cognito Identity Pool Id
-        var endpoint = 'https://z8ljn2k7ka.execute-api.us-east-1.amazonaws.com/test'; // API Gateway EndPoint
-        var testAPI = '/test'; // API Gateway API
+        var UserPoolId = 'us-east-1_<Pool Id>'; // Cognito User Pool Id
+        var ClientId = '<Client Id>'; // Client Id(Cognito User Pool App Client Id)
+        var IdentityPoolId = 'us-east-1:<Identity Pool Id>'; // Cognito Identity Pool Id
+        var endpoint = 'https://<API>.execute-api.us-east-1.amazonaws.com/<Stage>'; // API Gateway EndPoint
+        var testAPI = '/<API>'; // API Gateway API
         
         /////////////////////////
         
@@ -186,7 +186,6 @@
                 console.log("err:",result);
             });
         }
-        //callAPIGateway();
 
         
     });
