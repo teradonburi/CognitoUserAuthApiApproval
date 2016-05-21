@@ -1,25 +1,25 @@
 PODS:
-  - AWSAPIGateway (2.4.1):
-    - AWSCore (= 2.4.1)
-  - AWSCognito (2.4.1):
-    - AWSCore (= 2.4.1)
-  - AWSCognitoIdentityProvider (2.4.1):
-    - AWSCore (= 2.4.1)
-  - AWSCore (2.4.1)
+  - AWSAPIGateway (2.4.2):
+    - AWSCore (= 2.4.2)
+  - AWSCognito (2.4.2):
+    - AWSCore (= 2.4.2)
+  - AWSCognitoIdentityProvider (2.4.2):
+    - AWSCore (= 2.4.2)
+  - AWSCore (2.4.2)
   - UICKeyChainStore (2.1.0)
 
 DEPENDENCIES:
-  - AWSAPIGateway
-  - AWSCognito
-  - AWSCognitoIdentityProvider
-  - AWSCore
-  - UICKeyChainStore
+  - AWSAPIGateway (= 2.4.2)
+  - AWSCognito (= 2.4.2)
+  - AWSCognitoIdentityProvider (= 2.4.2)
+  - AWSCore (= 2.4.2)
+  - UICKeyChainStore (= 2.1.0)
 
 SPEC CHECKSUMS:
-  AWSAPIGateway: f0849567d8491bd9a95c94caac1add5f180abdab
-  AWSCognito: a57173a82505161bd1a9c8cfe393cea9b5b1f6bb
-  AWSCognitoIdentityProvider: 94ba6554991dd65e214678361f1d691fe7adb528
-  AWSCore: 9bfd632f04aaf12053e639d2a9120372844beb0d
+  AWSAPIGateway: 1e4b7a2638242462c5e32bd78ab77a6f801eda18
+  AWSCognito: 87cf3dadb17eed732c1c3fe21624fa8f15ef84ec
+  AWSCognitoIdentityProvider: c0eaf378dcd9d36595f188821119aa8dab70431c
+  AWSCore: 08cc4318682a518ad73e452900336ba54e823e03
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
 COCOAPODS: 0.39.0

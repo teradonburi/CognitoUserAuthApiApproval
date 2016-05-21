@@ -1,7 +1,7 @@
 platform :ios, '8.0'
 
 pod 'UICKeyChainStore','2.1.0'
-pod 'AWSCore','2.4.1'
-pod 'AWSCognitoIdentityProvider','2.4.1'
-pod 'AWSCognito','2.4.1'
-pod 'AWSAPIGateway','2.4.1'
+pod 'AWSCore','2.4.2'
+pod 'AWSCognitoIdentityProvider','2.4.2'
+pod 'AWSCognito','2.4.2'
+pod 'AWSAPIGateway','2.4.2'
