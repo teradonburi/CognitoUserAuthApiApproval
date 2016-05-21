@@ -1,0 +1,407 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1AEBBC181CE4B9E600407A49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC171CE4B9E600407A49 /* AppDelegate.swift */; };
+		1AEBBC1A1CE4B9E600407A49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC191CE4B9E600407A49 /* ViewController.swift */; };
+		1AEBBC1D1CE4B9E600407A49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AEBBC1B1CE4B9E600407A49 /* Main.storyboard */; };
+		1AEBBC1F1CE4B9E600407A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AEBBC1E1CE4B9E600407A49 /* Assets.xcassets */; };
+		1AEBBC221CE4B9E600407A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AEBBC201CE4B9E600407A49 /* LaunchScreen.storyboard */; };
+		1AEBBC2C1CE4C12C00407A49 /* Cognito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC2B1CE4C12C00407A49 /* Cognito.swift */; };
+		1AEBBC3B1CEA006900407A49 /* ServerlessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC3A1CEA006900407A49 /* ServerlessModel.m */; };
+		1AEBBC3E1CEA01EC00407A49 /* ServerlessClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC3D1CEA01EC00407A49 /* ServerlessClient.m */; };
+		1AEBBC401CEA27B200407A49 /* UserPoolProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC3F1CEA27B200407A49 /* UserPoolProvider.swift */; };
+		6986607F95D04AFC0163FED0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88859F17804757CCC9338356 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1AEBBC141CE4B9E600407A49 /* Serverless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serverless.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AEBBC171CE4B9E600407A49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1AEBBC191CE4B9E600407A49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1AEBBC1C1CE4B9E600407A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1AEBBC1E1CE4B9E600407A49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1AEBBC211CE4B9E600407A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1AEBBC231CE4B9E600407A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AEBBC291CE4C06400407A49 /* Serverless-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Serverless-Bridging-Header.h"; sourceTree = "<group>"; };
+		1AEBBC2B1CE4C12C00407A49 /* Cognito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cognito.swift; path = AWS/Cognito.swift; sourceTree = "<group>"; };
+		1AEBBC391CEA006900407A49 /* ServerlessModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerlessModel.h; path = AWS/ServerlessModel.h; sourceTree = "<group>"; };
+		1AEBBC3A1CEA006900407A49 /* ServerlessModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerlessModel.m; path = AWS/ServerlessModel.m; sourceTree = "<group>"; };
+		1AEBBC3C1CEA01EC00407A49 /* ServerlessClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerlessClient.h; path = AWS/ServerlessClient.h; sourceTree = "<group>"; };
+		1AEBBC3D1CEA01EC00407A49 /* ServerlessClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerlessClient.m; path = AWS/ServerlessClient.m; sourceTree = "<group>"; };
+		1AEBBC3F1CEA27B200407A49 /* UserPoolProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPoolProvider.swift; path = AWS/UserPoolProvider.swift; sourceTree = "<group>"; };
+		653E1A9FF3229463DA18281A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		88859F17804757CCC9338356 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8419910FFA7A614F4EEC85D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1AEBBC111CE4B9E600407A49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6986607F95D04AFC0163FED0 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		180AFC80D749EE7943DB569E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88859F17804757CCC9338356 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1AEBBC0B1CE4B9E600407A49 = {
+			isa = PBXGroup;
+			children = (
+				1AEBBC161CE4B9E600407A49 /* Serverless */,
+				1AEBBC151CE4B9E600407A49 /* Products */,
+				D2CEC548A07F357BB2C5EA76 /* Pods */,
+				180AFC80D749EE7943DB569E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1AEBBC151CE4B9E600407A49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AEBBC141CE4B9E600407A49 /* Serverless.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1AEBBC161CE4B9E600407A49 /* Serverless */ = {
+			isa = PBXGroup;
+			children = (
+				1AEBBC2A1CE4C10200407A49 /* AWS */,
+				1AEBBC171CE4B9E600407A49 /* AppDelegate.swift */,
+				1AEBBC191CE4B9E600407A49 /* ViewController.swift */,
+				1AEBBC1B1CE4B9E600407A49 /* Main.storyboard */,
+				1AEBBC1E1CE4B9E600407A49 /* Assets.xcassets */,
+				1AEBBC201CE4B9E600407A49 /* LaunchScreen.storyboard */,
+				1AEBBC231CE4B9E600407A49 /* Info.plist */,
+				1AEBBC291CE4C06400407A49 /* Serverless-Bridging-Header.h */,
+			);
+			path = Serverless;
+			sourceTree = "<group>";
+		};
+		1AEBBC2A1CE4C10200407A49 /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+				1AEBBC3C1CEA01EC00407A49 /* ServerlessClient.h */,
+				1AEBBC3D1CEA01EC00407A49 /* ServerlessClient.m */,
+				1AEBBC391CEA006900407A49 /* ServerlessModel.h */,
+				1AEBBC3A1CEA006900407A49 /* ServerlessModel.m */,
+				1AEBBC2B1CE4C12C00407A49 /* Cognito.swift */,
+				1AEBBC3F1CEA27B200407A49 /* UserPoolProvider.swift */,
+			);
+			name = AWS;
+			sourceTree = "<group>";
+		};
+		D2CEC548A07F357BB2C5EA76 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				653E1A9FF3229463DA18281A /* Pods.debug.xcconfig */,
+				D8419910FFA7A614F4EEC85D /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1AEBBC131CE4B9E600407A49 /* Serverless */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AEBBC261CE4B9E600407A49 /* Build configuration list for PBXNativeTarget "Serverless" */;
+			buildPhases = (
+				C6A51CC7EB5D993B1483E447 /* Check Pods Manifest.lock */,
+				1AEBBC101CE4B9E600407A49 /* Sources */,
+				1AEBBC111CE4B9E600407A49 /* Frameworks */,
+				1AEBBC121CE4B9E600407A49 /* Resources */,
+				98477CBAF81F64B747C7C4DD /* Embed Pods Frameworks */,
+				9E401710683158E6A19F3F39 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Serverless;
+			productName = Serverless;
+			productReference = 1AEBBC141CE4B9E600407A49 /* Serverless.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1AEBBC0C1CE4B9E600407A49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "寺井 大樹";
+				TargetAttributes = {
+					1AEBBC131CE4B9E600407A49 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 1AEBBC0F1CE4B9E600407A49 /* Build configuration list for PBXProject "Serverless" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1AEBBC0B1CE4B9E600407A49;
+			productRefGroup = 1AEBBC151CE4B9E600407A49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1AEBBC131CE4B9E600407A49 /* Serverless */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1AEBBC121CE4B9E600407A49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AEBBC221CE4B9E600407A49 /* LaunchScreen.storyboard in Resources */,
+				1AEBBC1F1CE4B9E600407A49 /* Assets.xcassets in Resources */,
+				1AEBBC1D1CE4B9E600407A49 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		98477CBAF81F64B747C7C4DD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E401710683158E6A19F3F39 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6A51CC7EB5D993B1483E447 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AEBBC101CE4B9E600407A49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AEBBC401CEA27B200407A49 /* UserPoolProvider.swift in Sources */,
+				1AEBBC1A1CE4B9E600407A49 /* ViewController.swift in Sources */,
+				1AEBBC3E1CEA01EC00407A49 /* ServerlessClient.m in Sources */,
+				1AEBBC2C1CE4C12C00407A49 /* Cognito.swift in Sources */,
+				1AEBBC181CE4B9E600407A49 /* AppDelegate.swift in Sources */,
+				1AEBBC3B1CEA006900407A49 /* ServerlessModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1AEBBC1B1CE4B9E600407A49 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AEBBC1C1CE4B9E600407A49 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1AEBBC201CE4B9E600407A49 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AEBBC211CE4B9E600407A49 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1AEBBC241CE4B9E600407A49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1AEBBC251CE4B9E600407A49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1AEBBC271CE4B9E600407A49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 653E1A9FF3229463DA18281A /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Serverless/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.daikiterai.Serverless;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT)/Serverless-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		1AEBBC281CE4B9E600407A49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8419910FFA7A614F4EEC85D /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Serverless/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.daikiterai.Serverless;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT)/Serverless-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AEBBC0F1CE4B9E600407A49 /* Build configuration list for PBXProject "Serverless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AEBBC241CE4B9E600407A49 /* Debug */,
+				1AEBBC251CE4B9E600407A49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AEBBC261CE4B9E600407A49 /* Build configuration list for PBXNativeTarget "Serverless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AEBBC271CE4B9E600407A49 /* Debug */,
+				1AEBBC281CE4B9E600407A49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1AEBBC0C1CE4B9E600407A49 /* Project object */;
+}

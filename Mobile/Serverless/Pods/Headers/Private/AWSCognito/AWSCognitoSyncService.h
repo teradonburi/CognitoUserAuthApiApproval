@@ -1,0 +1,1 @@
+../../../AWSCognito/AWSCognito/CognitoSync/AWSCognitoSyncService.h

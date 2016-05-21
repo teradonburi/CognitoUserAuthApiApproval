@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ViewController.callAPI(String) -&gt; ():ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.(Verify(AnyObject) -&gt; ()).(closure #1).(closure #1):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "task">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[ServerlessClient defaultClient]:ServerlessClient.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "AWSServiceManager.defaultServiceManager.defaultServiceConfiguration">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ServerlessClient initWithConfiguration:]:ServerlessClient.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

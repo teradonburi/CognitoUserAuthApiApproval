@@ -1,0 +1,1 @@
+../../../AWSCognitoIdentityProvider/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h

@@ -1,0 +1,232 @@
+<!-- Cognito -->
+<script type="text/javascript" src="js/cognito/jsbn.js"></script>
+<script type="text/javascript" src="js/cognito/jsbn2.js"></script>
+<script type="text/javascript" src="js/cognito/sjcl.js"></script>
+<script type="text/javascript" src="js/cognito/moment.min.js"></script>
+<script type="text/javascript" src="js/cognito/aws-cognito-sdk.min.js"></script>
+<script type="text/javascript" src="js/cognito/amazon-cognito-identity.min.js"></script>
+<script type="text/javascript" src="js/cognito/aws-sdk-2.3.5.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!-- API Gateway -->
+<script type="text/javascript" src="js/lib/axios/dist/axios.standalone.js"></script>
+<script type="text/javascript" src="js/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="js/lib/CryptoJS/rollups/sha256.js"></script>
+<script type="text/javascript" src="js/lib/CryptoJS/components/hmac.js"></script>
+<script type="text/javascript" src="js/lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="js/lib/url-template/url-template.js"></script>
+<script type="text/javascript" src="js/lib/apiGatewayCore/sigV4Client.js"></script>
+<script type="text/javascript" src="js/lib/apiGatewayCore/apiGatewayClient.js"></script>
+<script type="text/javascript" src="js/lib/apiGatewayCore/simpleHttpClient.js"></script>
+<script type="text/javascript" src="js/lib/apiGatewayCore/utils.js"></script>
+<script type="text/javascript" src="js/apigClient.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function($){ 
+        
+        /////////////////////////
+        // Config Param
+        /////////////////////////
+        
+        var UserPoolId = 'us-east-1_Fidg1SRpL'; // Cognito User Pool Id
+        var ClientId = '36d3h4nk8pmp8n8j1bocegs1pb'; // Client Id(Cognito User Pool App Client Id)
+        var IdentityPoolId = 'us-east-1:41bbf911-3f5e-4ba0-acfe-bd71eaa7f8b3'; // Cognito Identity Pool Id
+        var endpoint = 'https://z8ljn2k7ka.execute-api.us-east-1.amazonaws.com/test'; // API Gateway EndPoint
+        var testAPI = '/test'; // API Gateway API
+        
+        /////////////////////////
+        
+        AWS.config.region = 'us-east-1'; // Region
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: IdentityPoolId
+        });
+
+        
+        // Cognito User Pool Id
+        AWSCognito.config.region = 'us-east-1';
+        AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: IdentityPoolId
+        });
+
+        var poolData = { 
+            UserPoolId : UserPoolId,
+            ClientId : ClientId
+        };
+
+        // signup
+        $("#signup").on( "click", function(){
+
+
+            var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+
+            var attributeList = [];
+
+            var dataEmail = {
+                Name : 'email',
+                Value : $('#email').val()
+            };
+
+            var attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
+
+            attributeList.push(attributeEmail);
+
+            userPool.signUp($('#name').val(), $('#password').val(), attributeList, null, function(err, result){
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                cognitoUser = result.user;
+                console.log('user name is ' + cognitoUser.getUsername());
+                console.log('call result: ' + result);
+            });
+        });
+        
+        // activate
+        $("#send").on( "click", function(){
+            var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+
+            var userData = {
+                Username : $('#verifyname').val(),
+                Pool : userPool
+            };
+            var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+            cognitoUser.confirmRegistration($('#key').val(), true, function(err, result) {
+                if (err) {
+                    alert(err);
+                    return;
+                }
+                console.log('call result: ' + result);
+            });
+        });
+        
+        // login
+        $("#login").on( "click", function(){
+            var authenticationData = {
+                Username : $('#loginname').val(),
+                Password : $('#loginpassword').val()
+            };
+            var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(authenticationData);
+            var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+            var userData = {
+                Username : $('#loginname').val(),
+                Pool : userPool
+            };
+            var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+            cognitoUser.authenticateUser(authenticationDetails, {
+                onSuccess: function (result) {
+                    var IdToken = result.getIdToken().getJwtToken();
+                    console.log('IdToken:' + IdToken);
+                    
+                    
+                    var provider = {};
+                    provider['cognito-idp.us-east-1.amazonaws.com/' + UserPoolId] = IdToken;
+
+                    var params = {
+                        IdentityPoolId:IdentityPoolId,
+                        Logins: provider
+                    };
+                    var cognitoidentity = new AWS.CognitoIdentity({apiVersion: '2016-04-18'});
+                    cognitoidentity.getId(params, function(err, data) {
+                        if (err){
+                            console.log(err, err.stack);
+                        }  
+                        else{
+                                                        
+                            var params = {
+                                IdentityId: data.IdentityId,
+                                Logins:provider
+                            };
+                            
+                            cognitoidentity.getCredentialsForIdentity(params, function(err, data) {
+                                if (err){
+                                    console.log(err, err.stack);
+                                }  
+                                else{
+                                    console.log("data.Credentials:",data.Credentials);
+                                    // Access AWS resources here.
+                                    callAPIGateway(data.Credentials);
+                                }
+                            });
+
+                            
+                        }    
+                    }); 
+
+                    
+                    
+                },
+
+                onFailure: function(err) {
+                    alert(err);
+                }
+
+            }); 
+        });
+        
+        
+        function callAPIGateway(token){
+            var apigClient = apigClientFactory.newClient(endpoint,{
+                accessKey: token.AccessKeyId,
+                secretKey: token.SecretKey,
+                sessionToken:token.SessionToken,
+                region: 'us-east-1' // OPTIONAL: The region where the API is deployed, by default this parameter is set to us-east-1
+            });
+
+            var param = {
+            }
+
+            var body = {                
+            };
+
+            apigClient.doPost(testAPI,param, body)
+                .then(function(result){
+                console.log("result:",result);
+            }).catch( function(result){
+                console.log("err:",result);
+            });
+        }
+        //callAPIGateway();
+
+        
+    });
+
+</script>
+
+<h1>SignUp</h1>
+<div>
+    <label for="name">name</label>
+    <input id="name" type="text" name="name" />
+</div>
+<div>
+    <label for="password">password</label>
+    <input id="password" type="password" name="password" placeholder="英数８文字" />
+</div>
+<div>
+    <label for="email">email</label>
+    <input id="email" type="text" name="email"  />
+</div>
+<button id="signup">SignUp</button>
+
+
+<h1>Activate</h1>
+<div>
+    <label for="verifyname">name</label>
+    <input id="verifyname" type="text" name="verifyname"  />
+</div>
+<div>
+    <label for="key">activateCode</label>
+    <input id="key" type="text" name="activateCode" placeholder="数字６文字" />
+</div>
+<button id="send">Send</button>
+
+<h1>Login</h1>
+<div>
+    <label for="loginname">name</label>
+    <input id="loginname" type="text" name="loginname"  />
+</div>
+<div>
+    <label for="loginpassword">password</label>
+    <input id="loginpassword" type="password" name="loginpassword" placeholder="英数８文字" />
+</div>
+<button id="login">login</button>
