@@ -12,8 +12,6 @@
 		1AEBBC1D1CE4B9E600407A49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AEBBC1B1CE4B9E600407A49 /* Main.storyboard */; };
 		1AEBBC1F1CE4B9E600407A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AEBBC1E1CE4B9E600407A49 /* Assets.xcassets */; };
 		1AEBBC221CE4B9E600407A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AEBBC201CE4B9E600407A49 /* LaunchScreen.storyboard */; };
-		1AEBBC2C1CE4C12C00407A49 /* Cognito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC2B1CE4C12C00407A49 /* Cognito.swift */; };
-		1AEBBC3B1CEA006900407A49 /* ServerlessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC3A1CEA006900407A49 /* ServerlessModel.m */; };
 		1AEBBC3E1CEA01EC00407A49 /* ServerlessClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC3D1CEA01EC00407A49 /* ServerlessClient.m */; };
 		1AEBBC401CEA27B200407A49 /* UserPoolProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBBC3F1CEA27B200407A49 /* UserPoolProvider.swift */; };
 		6986607F95D04AFC0163FED0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88859F17804757CCC9338356 /* libPods.a */; };
@@ -28,9 +26,6 @@
 		1AEBBC211CE4B9E600407A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AEBBC231CE4B9E600407A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AEBBC291CE4C06400407A49 /* Serverless-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Serverless-Bridging-Header.h"; sourceTree = "<group>"; };
-		1AEBBC2B1CE4C12C00407A49 /* Cognito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cognito.swift; path = AWS/Cognito.swift; sourceTree = "<group>"; };
-		1AEBBC391CEA006900407A49 /* ServerlessModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerlessModel.h; path = AWS/ServerlessModel.h; sourceTree = "<group>"; };
-		1AEBBC3A1CEA006900407A49 /* ServerlessModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerlessModel.m; path = AWS/ServerlessModel.m; sourceTree = "<group>"; };
 		1AEBBC3C1CEA01EC00407A49 /* ServerlessClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerlessClient.h; path = AWS/ServerlessClient.h; sourceTree = "<group>"; };
 		1AEBBC3D1CEA01EC00407A49 /* ServerlessClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerlessClient.m; path = AWS/ServerlessClient.m; sourceTree = "<group>"; };
 		1AEBBC3F1CEA27B200407A49 /* UserPoolProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPoolProvider.swift; path = AWS/UserPoolProvider.swift; sourceTree = "<group>"; };
@@ -97,9 +92,6 @@
 			children = (
 				1AEBBC3C1CEA01EC00407A49 /* ServerlessClient.h */,
 				1AEBBC3D1CEA01EC00407A49 /* ServerlessClient.m */,
-				1AEBBC391CEA006900407A49 /* ServerlessModel.h */,
-				1AEBBC3A1CEA006900407A49 /* ServerlessModel.m */,
-				1AEBBC2B1CE4C12C00407A49 /* Cognito.swift */,
 				1AEBBC3F1CEA27B200407A49 /* UserPoolProvider.swift */,
 			);
 			name = AWS;
@@ -239,9 +231,7 @@
 				1AEBBC401CEA27B200407A49 /* UserPoolProvider.swift in Sources */,
 				1AEBBC1A1CE4B9E600407A49 /* ViewController.swift in Sources */,
 				1AEBBC3E1CEA01EC00407A49 /* ServerlessClient.m in Sources */,
-				1AEBBC2C1CE4C12C00407A49 /* Cognito.swift in Sources */,
 				1AEBBC181CE4B9E600407A49 /* AppDelegate.swift in Sources */,
-				1AEBBC3B1CEA006900407A49 /* ServerlessModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

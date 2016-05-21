@@ -15,10 +15,24 @@
  
 
 #import "ServerlessClient.h"
-#import "ServerlessModel.h"
 #import <AWSCore/AWSSignature.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
+
+
+@interface SeverlessModel : AWSModel
+
+@property (strong, nonatomic) NSDictionary* param;
+
+@end
+
+@implementation SeverlessModel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{};
+}
+
+@end
 
 
 @interface AWSAPIGatewayClient()

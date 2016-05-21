@@ -10,6 +10,21 @@ import UIKit
 
 class ViewController: UIViewController,UITextFieldDelegate {
 
+    //////////////////////
+    // Config Param
+    //////////////////////
+    
+    var UserPoolId = "us-east-1_<Pool Id>" // Cognito User Pool Id
+    var ClientId = "<Client Id>" // Cognito User Pool Client Id
+    var ClientSecret = "<Client Secret>" // Cognito User Pool Client Secret
+    var IdentitityPoolId = "us-east-1:<Identity Pool Id>" // Cognito Identity Pool Id
+    let EndPoint = "https://<API>.execute-api.us-east-1.amazonaws.com/<Stage>" // API Gateway Endpoint
+    let API = "/<API>" // API Gateway API
+    
+    //////////////////////
+
+    
+    // Cognito User Pool
     var pool: AWSCognitoIdentityUserPool?
     
     @IBOutlet weak var signupName: UITextField!
@@ -31,12 +46,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
         
         let userPoolConfigration: AWSCognitoIdentityUserPoolConfiguration =
-            AWSCognitoIdentityUserPoolConfiguration(clientId: "1iq0nruq3ehrk5rmdutsqvbnjk", clientSecret: "1409e4527acgn21jsiu429m9k5njs9n1g6v3kmg3o791ifr0lstf", poolId: "us-east-1_Fidg1SRpL")
+            AWSCognitoIdentityUserPoolConfiguration(clientId: ClientId, clientSecret: ClientSecret, poolId: UserPoolId)
         
         // 名前をつけておくことで、このプールのインスタンスを取得することができます
-        AWSCognitoIdentityUserPool.registerCognitoIdentityUserPoolWithUserPoolConfiguration(userPoolConfigration, forKey: "AmazonCognitoIdentityProvider")
-        
-        pool = AWSCognitoIdentityUserPool(forKey: "AmazonCognitoIdentityProvider")
+        let PoolKey = "AmazonCognitoIdentityProvider"
+        AWSCognitoIdentityUserPool.registerCognitoIdentityUserPoolWithUserPoolConfiguration(userPoolConfigration, forKey: PoolKey)
+        pool = AWSCognitoIdentityUserPool(forKey: PoolKey)
         
         
         signupName.delegate = self
@@ -113,19 +128,22 @@ class ViewController: UIViewController,UITextFieldDelegate {
             } else {
                 print(task.result)
                 
-                let cognitoIdentityPoolId = "us-east-1:41bbf911-3f5e-4ba0-acfe-bd71eaa7f8b3"
+                let cognitoIdentityPoolId = self.IdentitityPoolId
                 let ret = task.result as! AWSCognitoIdentityUserSession
                 let IdToken : String =  ret.idToken!.tokenString
                 
+                // 認証プロバイダーにUser Poolを使う
+                let provider = "cognito-idp.us-east-1.amazonaws.com/" + self.UserPoolId
+                
                 let userpoolProvider = UserPoolProvider()
-                userpoolProvider.setting("cognito-idp.us-east-1.amazonaws.com/us-east-1_Fidg1SRpL", token: IdToken)
+                userpoolProvider.setting(provider, token: IdToken)
                 let credentialsProvider = AWSCognitoCredentialsProvider(
                     regionType: .USEast1,
                     identityPoolId: cognitoIdentityPoolId,
                     identityProviderManager: userpoolProvider
                 )
-                let configuration = AWSServiceConfiguration(region:.APNortheast1, credentialsProvider:credentialsProvider)
-                AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+                // credentialのキャッシュをクリア
+                credentialsProvider.clearKeychain()
                 
                 
                 // credential取得
@@ -138,47 +156,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
                         print(task.result)
 
 
-                        
-                        credentialsProvider.getIdentityId().continueWithBlock { (task: AWSTask!) -> AnyObject! in
-                            
-                            if (task.error != nil) {
-                                print(task.error)
-                                
-                            } else {
-                                
-                                // identityId
-                                let identityId = task.result as! String
-                                print(identityId)
-                                
-                                let cognitoIdentity = AWSCognitoIdentity.defaultCognitoIdentity()
-                                let input = AWSCognitoIdentityGetCredentialsForIdentityInput()
-                                input.identityId = identityId
-                                input.logins = [
-                                    "cognito-idp.us-east-1.amazonaws.com/us-east-1_Fidg1SRpL": IdToken
-                                ]
-                                
-                                cognitoIdentity.getCredentialsForIdentity(input).continueWithBlock { (task: AWSTask!) -> AnyObject! in
-                                    
-                                    if (task.error != nil) {
-                                        print(task.error)
-                                        
-                                    } else {
-                                        print(task.result)
-                                        
-                                        
-                                        self.callAPI(credentialsProvider,identityId: identityId)
-
-                                    }
-                                    
-                                    return nil
-                                }
-                               
-                                
-
-                                
-                            }
-                            return nil
-                        }
+                        self.callAPI(credentialsProvider)
  
                         
                     }
@@ -194,10 +172,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
     }
     
-    func callAPI(credentialsProvider:AWSCognitoCredentialsProvider,identityId:String){
+    func callAPI(credentialsProvider:AWSCognitoCredentialsProvider){
         
         // API Gatewayのエンドポイント設定
-        ServerlessClient.setEndPoint("https://s8ls7wv8di.execute-api.us-east-1.amazonaws.com/test")
+        ServerlessClient.setEndPoint(EndPoint)
         
         // Cognito identityPoolIdによるAPI認可
         let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
@@ -211,7 +189,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         let client = ServerlessClient(forKey: "Auth")
         
-        client.Post("/test",param: ["key1":"abc"]).continueWithBlock { (task: AWSTask!) -> AnyObject! in
+        client.Post(API,param: ["":""]).continueWithBlock { (task: AWSTask!) -> AnyObject! in
             
             if (task.error != nil) {
                 print(task.error)
