@@ -5,9 +5,9 @@ package com.example.teraidaiki.serverless;
 //
 
 
-public class Data {
+public class ResponseData {
     String message;
 
-    public Data() {
+    public ResponseData() {
     }
 }

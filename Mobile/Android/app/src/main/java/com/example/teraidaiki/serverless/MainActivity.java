@@ -3,16 +3,13 @@ package com.example.teraidaiki.serverless;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.amazonaws.ClientConfiguration;
-import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.CognitoCredentialsProvider;
-import com.amazonaws.auth.Signer;
 import com.amazonaws.mobileconnectors.apigateway.ApiClientFactory;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserAttributes;
@@ -25,8 +22,10 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.Mult
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.AuthenticationHandler;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GenericHandler;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHandler;
-import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     //////////////////////
     // Config Param
     //////////////////////
-    private static final String userPoolId = "us-east-1_<User Pool ID>";
-    private static final String clientId = "<User Pool Client ID>";
+    private static final String userPoolId = "us-east-1_<User Pool Id>";
+    private static final String clientId = "<User Pool Client Id>";
     private static final String clientSecret = "<User Pool Client Secret>";
     private static final String identityPoolId = "us-east-1:<Identity Pool Id>";
 
@@ -207,7 +206,11 @@ public class MainActivity extends AppCompatActivity {
                 // Build
                 final TestClient client = factory.build(TestClient.class);
 
-                Data data = client.testPost();
+
+                Gson gson = new Gson();
+                RequestData requestData = new RequestData("パラメータです");
+
+                ResponseData data = client.testPost(gson.toJson(requestData));
                 return null;
             }
 
