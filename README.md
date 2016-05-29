@@ -9,7 +9,7 @@ Cognito User Poolによるユーザ登録・ユーザ認証
 
 ## 概要
 
-下記AWSサービスを用いてサーバレス（認証サーバ、アプリケーションサーバ無し）で
+下記AWSサービスを用いてサーバレス（認証サーバ、アプリケーションサーバ無し）で  
 ユーザ認証と認証ユーザに対し、認可APIを提供するサンプルです。
 
 * Cognito 
@@ -28,18 +28,18 @@ Cognito User Poolによるユーザ登録・ユーザ認証
 ## 使い道
 
 * Cognito User Poolに認証ユーザ情報を一元管理
-* IAMでサービス別にAPI認可ができる
+* 認証ユーザに対し、 Cognito Federated IdentityでIdentity Pool別に割り当てたIAMでサービス別にAPI認可ができる
 
 ## 導入方法
 
-AWS側の設定およびサンプルの設定は下記参考
+AWS側の設定およびサンプルの設定は下記参考  
 [世界に先駆けてAWSサーバレスアーキテクチャでユーザ認証とAPI認可の実装をしてみた](http://qiita.com/teradonburi/items/ef535d19c28a009552ec)
 
 
 ## ライセンス
 
-AWS SDKライブラリの方はAmazonさん準拠になります。
-サンプルの方はMIT
+AWS SDKライブラリの方はAmazonさん準拠になります。  
+サンプルの方はMIT  
 （改変、商用利用など、ご自由に）
 
 ## 作者
